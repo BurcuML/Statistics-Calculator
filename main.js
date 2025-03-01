@@ -17,7 +17,7 @@ Bu kod, bir dizi içindeki tüm elemanların toplamını hesaplamak için kullan
 
 "acc" (akümülatör), döngü boyunca biriken toplamı temsil eder.
 "el," dizinin her bir elemanını temsil eder.
-"0", reduce metodunun başlangıç değeri olarak kullanılır; böylece toplam hesaplaması sıfırdan başlar.
+"0", .(reduce) metodunun başlangıç değeri olarak kullanılır; böylece toplam hesaplaması sıfırdan başlar.
 Sonuç olarak, bu kod dizi içinde bulunan bütün sayıları toplar ve toplam değeri sum değişkenine atar.
 
  */
