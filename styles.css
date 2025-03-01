@@ -25,7 +25,9 @@ input {
 .box{
   background-color: black;
   border: 1px solid black;
+  border-radius: 25px;
   margin: auto;
-  width: 50%;
+  width: 60%;
   padding: 10px;
+  color: rgb(255, 223, 78);
 }
