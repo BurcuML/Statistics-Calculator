@@ -21,13 +21,29 @@ Bu kod, bir dizi içindeki tüm elemanların toplamını hesaplamak için kullan
 Sonuç olarak, bu kod dizi içinde bulunan bütün sayıları toplar ve toplam değeri sum değişkenine atar.
 
  */
+
+// const getMean = (array) => array.reduce((acc, el) => acc + el, 0) / array.length; -> Bu şekilde de yapabiliriz (implicit return)
 const getMean = (array) => {
     const sum = array.reduce((acc, el) => acc + el, 0);
     const mean = sum / array.length;
     return mean;
   }
   
-  
+  // Ternary operator, JavaScript'te koşullu ifadeleri kısa ve öz bir şekilde ifade etmek için kullanılır. 
+  // median değeri Ternary Operator ile de yazılabilirdi, tıpki aşağ görüldüğü gibi.
+
+  //const median = sorted.length % 2 === 0 ? getMean([sorted[sorted.length / 2], sorted[sorted.length / 2 - 1]]) : sorted[Math.floor(sorted.length / 2)];
+
+  const getMedian = (array) => {
+    const sorted = array.toSorted((a, b) => a - b);
+    let result = sorted.length % 2 === 0;
+    if(result){
+      return getMean([sorted[sorted.length / 2 - 1], sorted[sorted.length / 2]]); //find the middle two numbers, calculate their mean
+    }else{
+      return sorted[Math.floor(sorted.length / 2)]; // return the middle number
+    }
+  }
+
   const calculate = () => {
     const value = document.querySelector("#numbers").value;
     const array = value.split(/,\s*/g);
