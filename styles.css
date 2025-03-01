@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  background-color: rgb(245, 210, 56);
+  text-align: center;
+  color: #ffffff;
+}
+
+button {
+  cursor: pointer;
+  background-color: rgb(245, 210, 56);
+  border: 3px solid rgb(245, 210, 56);
+  color: rgb(0, 0, 0);
+}
+
+input {
+  background-color: rgb(245, 210, 56);
+  color: white;
+  border: 1px solid rgb(245, 210, 56);
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.box{
+  background-color: black;
+  border: 1px solid black;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
