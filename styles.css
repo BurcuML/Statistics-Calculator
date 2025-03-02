@@ -1,21 +1,23 @@
 body {
   margin: 0;
-  background-color: rgb(245, 210, 56);
+  background-color: #d5fcfa;
   text-align: center;
-  color: #ffffff;
 }
 
 button {
   cursor: pointer;
-  background-color: rgb(245, 210, 56);
-  border: 3px solid rgb(245, 210, 56);
+  background-color: #E8FFFE;
+  border: 3px solid #E8FFFE;
   color: rgb(0, 0, 0);
+  border-radius: 7px;
 }
 
 input {
-  background-color: rgb(245, 210, 56);
+  background-color: #E8FFFE;
   color: #000;
-  border: 1px solid rgb(245, 210, 56);
+  border: 1px solid #E8FFFE;
+  margin-top: 10px;
+  border-radius: 7px;
 }
 
 .bold {
@@ -23,11 +25,9 @@ input {
 }
 
 .box{
-  background-color: black;
-  border: 1px solid black;
+  background-color: #55CCD0;
   border-radius: 25px;
   margin: auto;
   width: 60%;
-  padding: 10px;
-  color: rgb(255, 223, 78);
+  color: #ecfffe;
 }
