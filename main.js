@@ -7,7 +7,18 @@ bu ifadeyi döndüren bir değer vermek için return anahtar kelimesini kullanma
 Örneğin, JavaScript'te bir arrow function kullanıldığında, eğer fonksiyonun gövdesi süslü parantezler olmadan yazılırsa, 
 bu durum implicit return sağlar.
 
- */
+
+**Spread Operator(...)**
+
+Bir dizi veya nesnenin elemanlarını "yaymak" için kullanılır. Örneğin: 
+
+const arr = [1, 2, 3];
+const newArr = [...arr, 4, 5];
+console.log(newArr); // [1, 2, 3, 4, 5]
+
+Bu kod, arr dizisinin elemanlarını alarak yeni bir newArr dizisi oluşturur ve bu dizinin sonuna 4 ve 5 sayılarını ekler.
+ 
+*/
 
 
 /**
@@ -48,4 +59,9 @@ const getMean = (array) => {
     const value = document.querySelector("#numbers").value;
     const array = value.split(/,\s*/g);
     const numbers = array.map(el => Number(el)).filter(el => !isNaN(el));
+
+    const mean = getMean(numbers);
+    const median = getMedian(numbers);
+    document.querySelector("#mean").textContent = mean;
+    document.querySelector("#median").textContent = median;
   }
