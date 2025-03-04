@@ -41,7 +41,7 @@ const getMean = (array) => {
   }
   
   // Ternary operator, JavaScript'te koşullu ifadeleri kısa ve öz bir şekilde ifade etmek için kullanılır. 
-  // median değeri Ternary Operator ile de yazılabilirdi, tıpki aşağ görüldüğü gibi.
+  // median değeri Ternary Operator ile de yazılabilirdi, tıpkı aşağıda görüldüğü gibi:
 
   //const median = sorted.length % 2 === 0 ? getMean([sorted[sorted.length / 2], sorted[sorted.length / 2 - 1]]) : sorted[Math.floor(sorted.length / 2)];
 
@@ -71,7 +71,21 @@ const getMean = (array) => {
     );
     return mode.join(", ");
   }
+
+  const getRange = (array) => {
+    return Math.max(...array) - Math.min(...array);
+  }
   
+  const getVariance = (array) => {
+    const mean = getMean(array);
+    const variance = array.reduce((acc, el) => {
+      const difference = el - mean;
+      const squared = difference ** 2;
+      return acc + squared;
+    }, 0) / array.length;
+    return variance;
+  }
+
   const calculate = () => {
     const value = document.querySelector("#numbers").value;
     const array = value.split(/,\s*/g);
@@ -79,6 +93,13 @@ const getMean = (array) => {
 
     const mean = getMean(numbers);
     const median = getMedian(numbers);
+    const range= getRange(numbers);
+    const variance = getVariance(numbers);
+    const mode = getMode(numbers);
+
+    document.querySelector("#mode").textContent =mode
+    document.querySelector("#range").textContent = range;
+    document.querySelector("#variance").textContent = variance;
     document.querySelector("#mean").textContent = mean;
     document.querySelector("#median").textContent = median;
   }
