@@ -11,7 +11,7 @@
     <h1 style="color: black;">Statistics Calculator</h1>
     <p style="color: black;">Enter a list of comma-separated numbers.</p>
     <div class="box">
-    <form onsubmit="calculate();">
+    <form onsubmit="calculate(); return false">
       <label for="numbers">Numbers:</label>
       <input type="text" name="numbers" id="numbers" />
       <button type="submit">Calculate</button>
