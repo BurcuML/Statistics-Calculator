@@ -86,17 +86,36 @@ const getMean = (array) => {
     return variance;
   }
 
+  const getStandardDeviation = (array) => {
+    const variance = getVariance(array);
+    const standardDeviation = Math.sqrt(variance);
+    return standardDeviation;
+  }
+
   const calculate = () => {
     const value = document.querySelector("#numbers").value;
-    const array = value.split(/,\s*/g);
-    const numbers = array.map(el => Number(el)).filter(el => !isNaN(el));
+    const array = value.split(/,\s*/g); // Bu kod, kullanıcının girdiği sayıları virgül ve boşluk karakterlerine göre ayırarak bir diziye dönüştürür. 
+    // .split() metodu, belirtilen desene göre bir dizi oluşturur. Bu durumda, /,\s*/g(regular expression) deseni, virgül ve boşluk karakterlerine göre ayırma işlemi yapar.
+    
+    const numbers = array.map(el => Number(el)).filter(el => !isNaN(el)); // Bu kod bir dizi elemanını sayılara dönüştürmek ve sayısal olmayan değerleri filtrelemek için kullanılır. 
+    /**
+     array.map(el => Number(el)): Bu kısım, array dizisindeki her bir elemanı (el) alır ve Number(el) fonksiyonunu kullanarak bu elemanı bir sayıya dönüştürür. 
+     .map() metodu, orijinal dizinin her bir elemanına bu dönüşümü uygulayarak yeni bir dizi oluşturur. Eğer eleman bir sayıya dönüştürülemezse, Number(el) fonksiyonu NaN (Not-a-Number) döndürür.
+     .filter(el => !isNaN(el)): Bu kısım, map metodu tarafından oluşturulan yeni dizideki elemanları filtreler. .filter() metodu, belirtilen koşulu sağlayan elemanları içeren yeni bir dizi oluşturur. 
+     Bu durumda, !isNaN(el) koşulu kullanılarak NaN olmayan elemanlar seçilir. isNaN(el) fonksiyonu, elemanın NaN olup olmadığını kontrol eder ve true veya false döndürür. !isNaN(el) ifadesi ise NaN olmayan elemanları seçer.
+
+     Sonuç olarak, numbers adında yeni bir dizi oluşturulur ve bu dizi sadece sayısal değerleri içerir. Sayısal olmayan tüm değerler filtrelenmiş olur.
+     */
+
 
     const mean = getMean(numbers);
     const median = getMedian(numbers);
     const range= getRange(numbers);
     const variance = getVariance(numbers);
     const mode = getMode(numbers);
-
+    const standardDeviation = getStandardDeviation(numbers);
+    
+    document.querySelector("#standard-deviation").textContent = standardDeviation;
     document.querySelector("#mode").textContent =mode
     document.querySelector("#range").textContent = range;
     document.querySelector("#variance").textContent = variance;
