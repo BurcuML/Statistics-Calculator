@@ -29,5 +29,20 @@ test('should return the mode of an array of positive numbers', () => {
 });
 
 test('should return the mode of an array of positive numbers', () => {
-    test(getMode([1, 2, 3, 3, 4, 5])).toBe(3);
+    expect(getMode([1, 2, 3, 3, 4, 5])).toBe(3);
+});
+
+test('should return the range of an array of positive numbers', () => {
+    expext(getRange([1, 2, 3, 4, 5])).toBe(4);});
+
+test('should return the range of an array of negative numbers', () => {
+    expect(getRange([-10, -20, -30, -40, -50])).toBe(40);
+});
+
+test('should return the standart of an array of negative numbers', () => {
+    expect(getStandardDeviation([-10, -20, -30, -40, -50])).toBe(14.142135623730951);
+});
+
+test('should return the standart of an array of positive numbers', () => {
+    expect(getStandardDeviation([1, 2, 3, 4, 5])).toBe(1.4142135623730951);
 });

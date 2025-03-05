@@ -92,6 +92,7 @@ const getMean = (array) => {
     return standardDeviation;
   }
 
+
   const calculate = () => {
     const value = document.querySelector("#numbers").value;
     const array = value.split(/,\s*/g); // Bu kod, kullanıcının girdiği sayıları virgül ve boşluk karakterlerine göre ayırarak bir diziye dönüştürür. 
@@ -114,11 +115,11 @@ const getMean = (array) => {
     const variance = getVariance(numbers);
     const mode = getMode(numbers);
     const standardDeviation = getStandardDeviation(numbers);
-    
-    document.querySelector("#standard-deviation").textContent = standardDeviation;
+
     document.querySelector("#mode").textContent =mode
     document.querySelector("#range").textContent = range;
     document.querySelector("#variance").textContent = variance;
     document.querySelector("#mean").textContent = mean;
     document.querySelector("#median").textContent = median;
+    document.querySelector("#standardDeviation").textContent = standardDeviation;
   }
