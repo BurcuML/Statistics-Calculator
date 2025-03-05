@@ -46,3 +46,11 @@ test('should return the standart of an array of negative numbers', () => {
 test('should return the standart of an array of positive numbers', () => {
     expect(getStandardDeviation([1, 2, 3, 4, 5])).toBe(1.4142135623730951);
 });
+
+test('should return the variance of an array of positive numbers', () => {
+    expect(getVariance([1, 2, 3, 4, 5])).toBe(2);
+}   );
+
+test('should return the variance of an array of negative numbers', () => { 
+    expect(getVariance([-10, -20, -30, -40, -50])).toBe(200);
+});
