@@ -77,18 +77,18 @@ const getMean = (array) => {
   }
   
   const getVariance = (array) => {
-    const mean = getMean(array);
-    const variance = array.reduce((acc, el) => {
+    const mean = getMean(array); 
+    const variance = array.reduce((acc, el) => { // array dizisi üzerinde reduce fonksiyonu kullanılır. .reduce() fonksiyonu, dizideki her eleman üzerinde belirli bir işlem yaparak tek bir sonuç (bu durumda varyans) üretir.                                         
       const difference = el - mean;
       const squared = difference ** 2;
       return acc + squared;
-    }, 0) / array.length;
+    }, 0) / array.length; // 0: .reduce() fonksiyonunun başlangıç değeridir. Yani acc (accumulator - biriktirici) değişkeni başlangıçta 0'dır.
     return variance;
   }
 
-  //Bu fonksiyon, standart sapmayı hesaplayan bir işlemdir. Önce dizinin varyansını hesaplarız ve sonra bu varyansın karekökünü alarak standart sapmayı buluruz. Standart sapma, verilerin ortalamadan ne kadar uzaklaştığını gösteren bir ölçüdür.
+//Bu fonksiyon, standart sapmayı hesaplayan bir işlemdir. Önce dizinin varyansını hesaplarız ve sonra bu varyansın karekökünü alarak standart sapmayı buluruz. Standart sapma, verilerin ortalamadan ne kadar uzaklaştığını gösteren bir ölçüdür.
   const getStandardDeviation = (array) => {
-    const variance = getVariance(array); //Bu satır, dizinin varyansını (variance) hesaplamak için getVariance adında (kodda tanımlı olmayan) bir fonksiyon çağırır ve sonucu variance adında bir sabite atar. Yani, standart sapmayı hesaplamadan önce, önce varyansı bulmamız gerekiyor.
+    const variance = getVariance(array); //Bu satır, dizinin varyansını (variance) hesaplamak için getVariance adında fonksiyonu çağırır ve sonucu variance adında bir sabite atar. Yani, standart sapmayı hesaplamadan önce, önce varyansı bulmamız gerekiyor.
     const standardDeviation = Math.sqrt(variance); //Bu satır, varyansın karekökünü alarak standart sapmayı hesaplar ve sonucu standardDeviation adlı bir sabite atar. Math.sqrt() fonksiyonu, JavaScript'te bir sayının karekökünü almak için kullanılır.
     return standardDeviation;
   }
