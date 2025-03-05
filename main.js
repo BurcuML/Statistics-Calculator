@@ -77,12 +77,12 @@ const getMean = (array) => {
   }
   
   const getVariance = (array) => {
-    const mean = getMean(array);
-    const variance = array.reduce((acc, el) => {
+    const mean = getMean(array); 
+    const variance = array.reduce((acc, el) => { // array dizisi üzerinde reduce fonksiyonu kullanılır. .reduce() fonksiyonu, dizideki her eleman üzerinde belirli bir işlem yaparak tek bir sonuç (bu durumda varyans) üretir.                                         
       const difference = el - mean;
       const squared = difference ** 2;
       return acc + squared;
-    }, 0) / array.length;
+    }, 0) / array.length; // 0: .reduce() fonksiyonunun başlangıç değeridir. Yani acc (accumulator - biriktirici) değişkeni başlangıçta 0'dır.
     return variance;
   }
 
