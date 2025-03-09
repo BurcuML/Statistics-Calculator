@@ -92,7 +92,8 @@ const getMean = (array) => {
   }
 
   const getRange = (array) => {
-    return Math.max(...array) - Math.min(...array);
+    return Math.max(...array) - Math.min(...array); //Math.max(...array) ifadesi, dizideki en büyük sayıyı bulur. ... (spread operatörü), diziyi tek tek elemanlarına ayırır ve Math.max fonksiyonuna argüman olarak iletir.
+                                                   //Math.min(...array) ifadesi, dizideki en küçük sayıyı bulur. ... (spread operatörü), diziyi tek tek elemanlarına ayırır ve Math.min fonksiyonuna argüman olarak iletir.
   }
   
   const getVariance = (array) => {
