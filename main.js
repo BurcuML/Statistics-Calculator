@@ -56,20 +56,39 @@ const getMean = (array) => {
   }
 
   const getMode = (array) => {
-    const counts = {};
-    array.forEach((el) => {
-      counts[el] = (counts[el] || 0) + 1;
+    const counts = {}; //Bu nesne, dizideki her elemanın kaç kez geçtiğini saklamak için kullanılacak.
+    array.forEach((el) => {       //Bu satır, input dizisi içerisindeki her bir eleman için bir döngü başlatıyor. "el" değişkeni, döngü sırasında dizideki her bir elemanı temsil ediyor.
+      counts[el] = (counts[el] || 0) + 1; //Bu satır, counts nesnesini güncelliyor.
+     /*
+     counts[el] : Mevcut elemanın (el) counts nesnesindeki karşılık gelen değerini (sayısını) getirir. Eğer eleman daha önce counts içinde yoksa, bu ifade undefined döner.
+     counts[el] || 0 : Eğer counts[el] undefined ise (yani eleman daha önce görülmediyse), 0 kullanılır. Aksi takdirde counts[el]'in mevcut değeri kullanılır.
+     Sonuç, counts nesnesinde ilgili elemanın anahtarına karşılık gelen değer olarak atanır. Yani, her bir elemanın kaç kez görüldüğü counts nesnesinde tutulur.
+     */
     })
-    if (new Set(Object.values(counts)).size === 1) {
+    if (new Set(Object.values(counts)).size === 1) { //Bu satır, dizideki tüm elemanların aynı sayıda tekrar edip etmediğini kontrol ediyor.
       return null;
+     /*
+     Object.values(counts): counts nesnesindeki tüm değerleri (yani, her elemanın tekrar sayısını) bir dizi olarak alır.
+     new Set(...): Bu diziyi bir Set'e dönüştürür. Set, yalnızca benzersiz değerler içerir. Bu, eğer tüm tekrar sayıları aynıysa, Set'in boyutu 1 olacaktır.
+     .size === 1: Set'in boyutunun 1 olup olmadığını kontrol eder. Eğer boyut 1 ise, tüm elemanlar aynı sayıda tekrar ediyor demektir (örneğin, [1, 1, 1] veya [2, 2, 2]).
+     */
     }
     const highest = Object.keys(counts).sort(
-      (a, b) => counts[b] - counts[a]
-    )[0];
+      (a, b) => counts[b] - counts[a])[0]; //Bu satır, en çok tekrar eden elemanın anahtarını (değerini değil) buluyor.
+    /*
+   Object.keys(counts): counts nesnesindeki tüm anahtarları (yani, dizideki benzersiz elemanları) bir dizi olarak alır.
+   .sort((a, b) => counts[b] - counts[a])[0]: Bu diziyi, tekrar sayılarına göre azalan sırada sıralar. counts[b] - counts[a] ifadesi, b elemanının tekrar sayısının a elemanının tekrar sayısından ne kadar fazla olduğunu hesaplar. 
+   Bu, sort fonksiyonuna, elemanları tekrar sayılarına göre sıralaması için bir karşılaştırma fonksiyonu sağlar. [0], Sıralanmış dizinin ilk elemanını alır. Bu, en çok tekrar eden elemanın anahtarıdır.
+   */ 
+   
     const mode = Object.keys(counts).filter(
-      (el) => counts[el] === counts[highest]
-    );
+      (el) => counts[el] === counts[highest]); //Bu satır, en çok tekrar eden tüm elemanları (birden fazla olabilir) buluyor.
     return mode.join(", ");
+    /*
+    .filter((el) => counts[el] === counts[highest]): Bu dizi üzerinde filtreleme yapar. 
+    counts[el] === counts[highest] ifadesi, geçerli elemanın (el) tekrar sayısının, en çok tekrar eden elemanın (highest) tekrar sayısıyla aynı olup olmadığını kontrol eder. Sadece tekrar sayısı en yüksek değere eşit olan elemanlar yeni diziye dahil edilir.
+    mode.join(", "): mode dizisindeki tüm elemanları (en çok tekrar eden elemanları) virgül ve boşluk ile birleştirerek tek bir string oluşturur.
+   */ 
   }
 
   const getRange = (array) => {
